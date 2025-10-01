@@ -1,0 +1,49 @@
+mappings:
+  - id: economicterms_effectiveDate_effective_date
+    cdmTag: economicTerms.effectiveDate.adjustableDate.unadjustedDate
+    goldenKey: effectiveDate
+    description: "A date subject to adjustment. While in FpML this date is required, this cardinality constraint has been relaxed as part of the CDM in order to support the FRA representation."
+    types:
+      goldenKeyType: date
+      cdmType: date
+    attributes:
+      required: false
+      nullable: false
+  - id: economicterms_effectiveDate_business_day_convention
+    cdmTag: economicTerms.effectiveDate.adjustableDate.dateAdjustments.businessDayConvention
+    goldenKey: businessDayConvention
+    description: "The convention for adjusting a date if it would otherwise fall on a day that is not a business day."
+    types:
+      goldenKeyType: string
+      cdmType: BusinessDayConventionEnum
+    attributes:
+      required: true
+      nullable: false
+  - id: economicterms_effectiveDate_business_centers
+    cdmTag: economicTerms.effectiveDate.adjustableDate.dateAdjustments.businessCenters.businessCenter
+    goldenKey: businessCenters
+    description: "A code identifying one or several business day calendar location(s). The set of business day calendar locations are specified by the business day calendar location enumeration."
+    types:
+      goldenKeyType: string
+      cdmType: BusinessCenterEnum
+    attributes:
+      required: false
+      nullable: false
+
+governance:
+  version: v1.0
+  approvalStatus: Pending
+  owner: CDM_Mapping_Team
+  createdDate: 2025-10-01
+  lastModifiedDate: 2025-10-01
+  approvals:
+    - approver: Vibhav
+      date: 2025-10-01
+      status: Pending
+
+status:
+  active: true
+  replaceable: true
+  userMappings: 3
+  missing: []
+  optional: ["adjustableDate.adjustedDate"]
